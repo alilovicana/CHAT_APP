@@ -83,9 +83,8 @@ export default function SetAvatar() {
           <div className="avatars">
             {avatars.map((avatar, index) => {
               return (
-                <div
-                  className={`avatar ${selectedAvatar === index ? "selected" : ""
-                    }`}
+                <div  className={`avatar ${selectedAvatar === index ? "selected" : ""
+                    }`} key={index}
                 >
                   <img
                     src={`data:image/svg+xml;base64,${avatar}`}
