@@ -10,10 +10,10 @@ import Contacts from "../components/Contacts";
 
 export default function Chat() {
   const navigate = useNavigate();
-  const socket = useRef();
-  const [contacts, setContacts] = useState([]);
-  const [currentChat, setCurrentChat] = useState(undefined);
-  const [currentUser, setCurrentUser] = useState(undefined);
+  // const socket = useRef();
+  // const [contacts, setContacts] = useState([]);
+  // const [currentChat, setCurrentChat] = useState(undefined);
+  // const [currentUser, setCurrentUser] = useState(undefined);
   // useEffect(async () => {
   //   if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
   //     navigate("/login");
@@ -27,10 +27,10 @@ export default function Chat() {
   // }, []);
   // useEffect(() => {
   //   if (currentUser) {
-  //     socket.current = io(host);
-  //     socket.current.emit("add-user", currentUser._id);
+  //     socket.current = io(host);//creates new socket connection to Socket.io server
+  //     socket.current.emit("add-user", currentUser._id);//send currentUser to server
   //   }
-  // }, [currentUser]);
+  // }, [currentUser]);//everytime currentUser change
 
   // useEffect(async () => {
   //   if (currentUser) {

@@ -9,12 +9,12 @@ export default function Logout() {
   const handleClick = async () => {
     const id = await JSON.parse(
       localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
-    )._id;
+    )._id;//get id of currentUser by parsing JSON string into JS object
     const data = await axios.get(`${logoutRoute}/${id}`);
     if (data.status === 200) {
       localStorage.clear();
       navigate("/login");
-    }
+    }//find that currentUser in db, and clear
   };
   return (
     <Button onClick={handleClick}>

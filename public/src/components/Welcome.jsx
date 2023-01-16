@@ -9,7 +9,7 @@ export default function Welcome() {
         localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
       ).username
     );
-  }, []);
+  }, []);//get username from db
   return (
     <Container>
       <img src={Robot} alt="" />

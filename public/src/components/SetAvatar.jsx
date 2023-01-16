@@ -23,35 +23,35 @@ export default function SetAvatar() {
     theme: "dark",
   };
 
-  // useEffect(async () => {
-  //   if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))
-  //     navigate("/login");
-  // }, []);
+  useEffect(async () => {
+    if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))
+      navigate("/login");
+  }, []);
 
   const setProfilePicture = async () => {
-    // if (selectedAvatar === undefined) {
-    //   toast.error("Please select an avatar", toastOptions);
-    // } else {
-    //   const user = await JSON.parse(
-    //     localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
-    //   );
+    if (selectedAvatar === undefined) {
+      toast.error("Please select an avatar", toastOptions);
+    } else {
+      const user = await JSON.parse(
+        localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+      );
 
-    //   const { data } = await axios.post(`${setAvatarRoute}/${user._id}`, {
-    //     image: avatars[selectedAvatar],
-    //   });
+      const { data } = await axios.post(`${setAvatarRoute}/${user._id}`, {
+        image: avatars[selectedAvatar],
+      });
 
-    //   if (data.isSet) {
-    //     user.isAvatarImageSet = true;
-    //     user.avatarImage = data.image;
-    //     localStorage.setItem(
-    //       process.env.REACT_APP_LOCALHOST_KEY,
-    //       JSON.stringify(user)
-    //     );
-    //     navigate("/");
-    //   } else {
-    //     toast.error("Error setting avatar. Please try again.", toastOptions);
-    //   }
-    // }
+      if (data.isSet) {
+        user.isAvatarImageSet = true;
+        user.avatarImage = data.image;
+        localStorage.setItem(
+          process.env.REACT_APP_LOCALHOST_KEY,
+          JSON.stringify(user)
+        );
+        navigate("/");
+      } else {
+        toast.error("Error setting avatar. Please try again.", toastOptions);
+      }
+    }
   };
 
   useEffect(() => {
@@ -83,9 +83,7 @@ export default function SetAvatar() {
           <div className="avatars">
             {avatars.map((avatar, index) => {
               return (
-                <div  className={`avatar ${selectedAvatar === index ? "selected" : ""
-                    }`} key={index}
-                >
+                <div className={`avatar ${selectedAvatar === index ? "selected" : ""}`} >
                   <img
                     src={`data:image/svg+xml;base64,${avatar}`}
                     alt="avatar"
